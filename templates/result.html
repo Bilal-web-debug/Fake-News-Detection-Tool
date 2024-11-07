@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container my-5 p-4 shadow-lg rounded">
+        <h1 class="text-center mb-4">Result</h1>
+        <p id="resultMessage" class="text-center lead fs-4">
+            The news article you entered is: <strong>{{ prediction }}</strong>
+        </p>
+        <a href="/" class="btn btn-primary w-100">Check Another Article</a>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Adding animation effect for the result
+            $('#resultMessage').fadeIn(1000).css("color", "{{ 'green' if prediction == 'Real News' else 'red' }}");
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
